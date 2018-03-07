@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Life Soundtrack</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -11,15 +11,160 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+
+
+    <body>
+
+
+<!--NAVBAR STARTS HEREEEREEEEERERREEEE -->
+
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+<!-- NAVBAR ENDS HERE WOOOOOHOOOOOOOO~~~~!!!! -->
+
+
+  <div class="col-sm-12" style="background-color: rgba(230,240,250,1); height: 100px;">safg</div>
+  <!-- <div class="col-sm-6" style="background-color: red; height: 500px;"></div> -->
+
+<div>
+<!-- Sign In-->
+  <form id="sign-in" class="col-md-6">
+    <h2>Background music of your life :D</h2>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+        <div style="float: right;" id="message"></div>
+  </form>
+
+<!-- END Sign In-->
+
+<form class="col-md-6" id="sign-up-button">
+  <h2>Not Registered?</h2>
+  <p>If it smells like fish eat as much as you wish lick human with
+    sandpaper tongue, be a nyan cat, feel great about it, be annoying
+    24/7 poop rainbows in litter box all day. If human is on laptop sit on
+    the keyboard cat fur is the new black but small kitty warm kitty little
+    balls of fur for flop over missing until dinner time.</p>
+  <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#sign-up-modal">
+  Sign up
+</button>
+</form>
+
+<!-- Sign Up Modal -->
+    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" id="sign-up-inner" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-up" class="form-group">
+              <fieldset id="signUpForms">
+                <div>
+                <div class="form-group col-sm-12">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small class="form-text text-muted">We'll also send you newsletters and a bunch of tic-tac-toe related spam roflmao fml</small>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="exampleInputPassword">Password</label>
+                  <input type="password" name="credentials[password]" class="form-control" aria-describedby="emailHelp" placeholder="Enter password">
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="exampleInputPassword">Password Confirmation</label>
+                  <input type="password" name="credentials[password_confirmation]" class="form-control" aria-describedby="emailHelp" placeholder="Enter password">
+                </div>
+              </div>
+              </fieldset>
+              <div class="col-sm-12" id="sign-up-modal-message"></div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="register-button" type="submit" class="btn btn-primary">Register</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end of Sign-up Modal-->
+
+    <!-- Create Song -->
+      <form id="create-song" class="col-md-6">
+        <h2>Create a song!</h2>
+        <div class="form-group" style="padding-left: 0px;">
+          <label for="inputSongName">Song Name</label>
+          <input type="text" name="song[name]" class="form-control" id="inputSongName" placeholder="Enter song name">
+        </div>
+        <div class="form-group" style="padding-left: 0px;">
+          <label for="inputSongArtist">Artist Name</label>
+          <input type="text" name="song[artist]" class="form-control" id="inputSongArtist" placeholder="Enter song artist">
+        </div>
+        <button type="submit" class="btn btn-primary">Create song</button>
+            <div style="float: right;" id="message"></div>
+      </form>
+
+<!--END Create Song -->
+
+</div>
     </body>
 </html>
