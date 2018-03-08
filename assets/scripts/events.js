@@ -37,6 +37,13 @@ const addHandlers = () => {
       .then(ui.createSongSuccess)
       .catch(ui.createSongFailure)
   })
+  $('#get-favorite-songs').on('submit', function (event) {
+    event.preventDefault()
+    console.log('I want to get favorite songs')
+    api.getFavoriteSongs()
+      .then(ui.createSongSuccess)
+      .catch(ui.createSongFailure)
+  })
 
 }
 

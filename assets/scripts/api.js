@@ -35,8 +35,20 @@ const createSong = function (data) { // this is the POST verb
   })
 }
 
+const getFavoriteSongs = function () {
+  return $.ajax({
+    url: config.apiOrigin + 'favorite_songs',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
-  createSong
+  createSong,
+  getFavoriteSongs
 }

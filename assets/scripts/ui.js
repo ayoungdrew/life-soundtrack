@@ -35,11 +35,21 @@ const createSongFailure = function (error) {
   console.error(error)
 }
 
+const getFavoriteSongsSuccess = function (data) {
+  console.log('you rock')
+}
+
+const getFavoriteSongsFailure = function (error) {
+  console.error(error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   createSongSuccess,
-  createSongFailure
+  createSongFailure,
+  getFavoriteSongsSuccess,
+  getFavoriteSongsFailure
 }
