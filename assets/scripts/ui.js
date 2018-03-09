@@ -15,10 +15,11 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
+  console.log(data)
   store.user = data.user
   console.log('SUCCESSFUL sign in')
   console.log('AJAX data returned:', data)
-  console.log(store.user)
+  console.log(data.user)
 }
 
 const signInFailure = function (error) {
@@ -26,6 +27,15 @@ const signInFailure = function (error) {
   console.error(error)
 }
 
+const getSongsSuccess = function (data) {
+  console.log(data)
+  store.songs = data.songs
+  console.log('Songs are...', data.songs)
+}
+
+const getSongsFailure = function (error) {
+  console.error(error)
+}
 const createSongSuccess = function (data) {
   console.log(data)
   console.log('Song ID is', data.song.id)
@@ -43,13 +53,26 @@ const getFavoriteSongsFailure = function (error) {
   console.error(error)
 }
 
+const createFavoriteSongSuccess = function (data) {
+  console.log('you rock')
+}
+
+const createFavoriteSongFailure = function (error) {
+  console.log('you failed to create favorite song')
+  console.error(error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
+  getSongsSuccess,
+  getSongsFailure,
   createSongSuccess,
   createSongFailure,
   getFavoriteSongsSuccess,
-  getFavoriteSongsFailure
+  getFavoriteSongsFailure,
+  createFavoriteSongSuccess,
+  createFavoriteSongFailure
 }

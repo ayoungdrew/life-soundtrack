@@ -148,6 +148,16 @@
     </div>
     <!--end of Sign-up Modal-->
 
+    <!-- Get all songs -->
+      <form id="get-songs" class="col-md-6">
+        <h2>Get all songs!</h2>
+        <button type="submit" class="btn btn-primary">Get songs</button>
+            <div style="float: right;" id="message"></div>
+      </form>
+
+<!--END Get all songs -->
+
+
     <!-- Create Song -->
       <form id="create-song" class="col-md-6">
         <h2>Create a song!</h2>
@@ -165,13 +175,38 @@
 
 <!--END Create Song -->
 
-<!-- Get Favorite Songs -->
-  <form id="get-favorite-songs" class="col-md-6">
-    <h2>Get favorite songs!</h2>
-    <button type="submit" class="btn btn-primary">Create song</button>
-  </form>
+<!-- Create Favorite Song -->
+<form id="create-favorite-song" class="col-md-6">
+  <h2>Create a favorite song!</h2>
+  <!-- <div class="form-group" style="padding-left: 0px;">
+    <label for="inputUserID">User ID</label>
+    <input type="text" name="favorite_song[user_id]" class="form-control" id="inputUserID" placeholder="Enter user ID">
+  </div> -->
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputSongID">Song ID</label>
+    <input type="text" name="favorite_song[song_id]" class="form-control" id="inputSongID" placeholder="Enter song ID">
+  </div>
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputFavoriteSongName">Song Name</label>
+    <input type="text" name="favorite_song[name]" class="form-control" id="inputFavoriteSongName" placeholder="Enter song name">
+  </div>
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputFavoriteSongArtist">Artist Name</label>
+    <input type="text" name="favorite_song[artist]" class="form-control" id="inputFavoriteSongArtist" placeholder="Enter song artist">
+  </div>
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputFavoriteSongDate">Story Date Year</label>
+    <input type="text" name="favorite_song[story_date]" class="form-control" id="inputFavoriteSongDate" placeholder="Enter Year">
+  </div>
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputFavoriteSongStory">Story</label>
+    <input type="text" name="favorite_song[story]" class="form-control" id="inputFavoriteSongStory" placeholder="Tell us a quick story">
+  </div>
+  <button type="submit" class="btn btn-primary">Create favorite song</button>
+      <div style="float: right;" id="message"></div>
+</form>
 
-<!--END Get Favorite Songs -->
+<!--END Create Favorite Song -->
 
 </div>
     </body>
