@@ -28,9 +28,8 @@ const signInFailure = function (error) {
 }
 
 const getSongsSuccess = function (data) {
-  console.log(data)
+  console.log('songs are...', data)
   store.songs = data.songs
-  console.log('Songs are...', data.songs)
 }
 
 const getSongsFailure = function (error) {
