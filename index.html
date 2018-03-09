@@ -81,7 +81,7 @@
 
 <div>
 <!-- Sign In-->
-  <form id="sign-in" class="col-md-6">
+  <form id="sign-in" class="col-sm-6">
     <h2>Background music of your life :D</h2>
     <div class="form-group" style="padding-left: 0px;">
       <label for="exampleInputEmail1">Email address</label>
@@ -97,13 +97,11 @@
 
 <!-- END Sign In-->
 
-<form class="col-md-6" id="sign-up-button">
+<form class="col-sm-6" id="sign-up-button">
   <h2>Not Registered?</h2>
-  <p>If it smells like fish eat as much as you wish lick human with
-    sandpaper tongue, be a nyan cat, feel great about it, be annoying
+  <p>Be a nyan cat, feel great about it, be annoying
     24/7 poop rainbows in litter box all day. If human is on laptop sit on
-    the keyboard cat fur is the new black but small kitty warm kitty little
-    balls of fur for flop over missing until dinner time.</p>
+    the keyboard.</p>
   <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#sign-up-modal">
   Sign up
 </button>
@@ -149,17 +147,48 @@
     <!--end of Sign-up Modal-->
 
     <!-- Get all songs -->
-      <form id="get-songs" class="col-md-6">
+      <form id="get-songs" class="col-sm-6">
         <h2>Get all songs!</h2>
         <button type="submit" class="btn btn-primary">Get songs</button>
-            <div style="float: right;" id="message"></div>
+            <div style="float: right;" id="songs-message"></div>
       </form>
 
-<!--END Get all songs -->
+<!--End GET ALL SONGS -->
 
+<!-- Start GET PHASES -->
+  <form id="get-all-phases" class="col-sm-6">
+    <h2>Get all phases!</h2>
+    <button type="submit" class="btn btn-primary">Get all phases</button>
+        <div style="float: right;" id="phases-container"></div>
+  </form>
 
-    <!-- Create Song -->
-      <form id="create-song" class="col-md-6">
+<div id="phases-content" class="phases-content">
+</div>
+
+<!--End GET ALL PHASES -->
+<!-- Start CREATE PHASE -->
+  <form id="create-phase" class="col-sm-6">
+    <h2>Create a phase!</h2>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="inputPhaseName">Phase Name</label>
+      <input type="text" name="phase[name]" class="form-control" id="inputPhaseName" placeholder="Enter phase name">
+    </div>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="inputPhaseArtist">Phase Start Date</label>
+      <input type="text" name="phase[start_date]" class="form-control" id="inputPhaseStartDate" placeholder="Enter phase start date">
+    </div>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="inputPhaseArtist">Phase End Date</label>
+      <input type="text" name="phase[end_date]" class="form-control" id="inputPhaseEndDate" placeholder="Enter phase end date">
+    </div>
+    <button type="submit" class="btn btn-primary">Create phase</button>
+        <div style="float: right;" id="phase-message"></div>
+  </form>
+
+<!--End CREATE PHASE -->
+
+    <!-- Start CREATE SONG -->
+      <form id="create-song" class="col-sm-6">
         <h2>Create a song!</h2>
         <div class="form-group" style="padding-left: 0px;">
           <label for="inputSongName">Song Name</label>
@@ -173,19 +202,19 @@
             <div style="float: right;" id="message"></div>
       </form>
 
-<!--END Create Song -->
+<!--End CREATE SONG -->
 
 <!-- Create Favorite Song -->
-<form id="create-favorite-song" class="col-md-6">
+<form id="create-favorite-song" class="col-sm-6">
   <h2>Create a favorite song!</h2>
   <!-- <div class="form-group" style="padding-left: 0px;">
     <label for="inputUserID">User ID</label>
     <input type="text" name="favorite_song[user_id]" class="form-control" id="inputUserID" placeholder="Enter user ID">
-  </div> -->
+  </div>
   <div class="form-group" style="padding-left: 0px;">
     <label for="inputSongID">Song ID</label>
     <input type="text" name="favorite_song[song_id]" class="form-control" id="inputSongID" placeholder="Enter song ID">
-  </div>
+  </div> -->
   <div class="form-group" style="padding-left: 0px;">
     <label for="inputFavoriteSongName">Song Name</label>
     <input type="text" name="favorite_song[name]" class="form-control" id="inputFavoriteSongName" placeholder="Enter song name">
@@ -206,7 +235,77 @@
       <div style="float: right;" id="message"></div>
 </form>
 
-<!--END Create Favorite Song -->
+<!--End CREATE FAVORITE SONG -->
+
+<!--Start Profile -->
+<!-- Player profile modal Button-->
+  <form id="profile-button" class="profile-button">
+  <button type="submit" class="btn btn-primary spacer20" data-toggle="modal" data-target="#player-profile">
+    Player profile
+  </button>
+  </form>
+  <!-- Player profile modal  -->
+  <div class="modal fade" id="player-profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Player profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="change-password" class="form-group">
+            <fieldset>
+              <div class="col-sm-12">
+              <div id="game-history-message"></div>
+              <div class="spacer20"></div>
+              </div>
+              <div>
+              <div class="form-group col-sm-12">
+                <label for="exampleInputPassword">Old Password</label>
+                <input type="password" name="passwords[old]" class="form-control" placeholder="Enter old password">
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="exampleInputPassword">New Password</label>
+                <input type="password" name="passwords[new]" class="form-control" placeholder="Enter new password">
+              </div>
+            </div>
+            </fieldset>
+            <div id="change-password-message"></div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Change password</button>
+        </form>
+            <!-- <input type="submit" value="Game history!"> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ALERT</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="alert-modal-message" class="modal-body" style="font-size: 30px;">
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End PROFILE -->
+
+<!--Start Sign Out -->
+<form id="sign-out" class="border sign-out">
+    <button type="submit" class="btn btn-primary spacer20">
+      Sign out
+    </button>
+</form>
+
+<!-- End SIGN OUT -->
 
 </div>
     </body>
