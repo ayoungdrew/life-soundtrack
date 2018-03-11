@@ -57,6 +57,18 @@ const getPhases = function () { // this is the POST verb
     }
   })
 }
+
+const getPhase = function () { // this is the POST verb
+  return $.ajax({
+    url: config.apiOrigin + '/phases/1',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const createPhase = function (data) { // this is the POST verb
   return $.ajax({
     url: config.apiOrigin + '/phases',
@@ -148,6 +160,7 @@ module.exports = {
   getFavoriteSongs,
   createFavoriteSong,
   createSongGetSongs,
+  getPhase,
   getPhases,
   createPhase,
   deletePhase,

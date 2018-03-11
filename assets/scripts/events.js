@@ -73,6 +73,14 @@ const addHandlers = () => {
       .catch(ui.createSongFailure)
   })
 
+  $('#get-phase').on('submit', function (event) {
+    event.preventDefault()
+    console.log('I want to get one phase')
+    api.getPhase()
+      .then(ui.getPhaseSuccess)
+      .catch(ui.getPhaseFailure)
+  })
+
   $('#get-all-phases').on('submit', function (event) {
     event.preventDefault()
     console.log('I want to get all phases')
@@ -80,6 +88,7 @@ const addHandlers = () => {
       .then(ui.getPhasesSuccess)
       .catch(ui.getPhasesFailure)
   })
+
   // DELTE PHASE
   $('body').on('click', '.phase-delete-button', function (event) {
     event.preventDefault()

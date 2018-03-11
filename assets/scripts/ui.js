@@ -1,5 +1,6 @@
 const store = require('./store')
-const showPhasesTemplate = require('./templates/phase-listing.handlebars')
+const showPhasesTemplate = require('./templates/phases-listing.handlebars')
+const showPhaseTemplate = require('./templates/phase-listing.handlebars')
 
 const signUpSuccess = function (data) {
   $('#sign-up-modal-message').html('Signed up succesfully').addClass('successMessage')
@@ -73,6 +74,17 @@ const getPhasesSuccess = function (data) {
   $('.phases-content').html(showPhasesHtml)
 }
 
+const getPhaseSuccess = function (data) {
+  console.log('Phases are...', data)
+  store.favorite_songs = data.favorite_songs
+  console.log(data)
+  console.log(store.favorite_songs)
+  const showPhaseHtml = showPhaseTemplate({ phases: store.favorite_songs })
+  // we can use `.html` instead of `.append` to get around the need for a
+  // clear books button
+  $('.phases-content').html(showPhaseHtml)
+}
+
 // const deletePhaseSuccess = function (data) {
 //   console.log('Phases are...', data)
 //   store.phases = data.phases
@@ -142,5 +154,6 @@ module.exports = {
   createFavoriteSongFailure,
   getPhasesSuccess,
   getPhasesFailure,
+  getPhaseSuccess,
   clearPhases
 }

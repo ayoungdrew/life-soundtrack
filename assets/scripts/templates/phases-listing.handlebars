@@ -5,18 +5,19 @@
     <li>
       <h1 data-id="{{phase.id}}">
         <small>
-          Name: {{phase.song.name}}
-          Artist: {{phase.song.artist}}
+          Name: {{phase.name}}
+          ID: {{phase.id}}
+          Phase: {{phase}}
+          userid: {{phase.user.id}}
           <!-- {{phase.songs}} -->
         </small>
       </h1>
     </li>
     <li>
-      {{#if phase.story}}
-        Story Date: {{phase.story_date}}
-        Story: {{phase.story}}
+      {{#if phase.start_date}}
+        Start Date: {{phase.start_date}}
       {{else}}
-        No story provided
+        No start date provided
       {{/if}}
     </li>
     <li>
