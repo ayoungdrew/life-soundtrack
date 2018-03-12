@@ -21,7 +21,7 @@ const signInSuccess = function (data) {
     .css({
       'display': 'block'
     })
-  $('#sign-in, #sign-up-button').css({
+  $('#sign-in, #sign-up-button, .sign-up').css({
     'display': 'none'
   })
   store.user = data.user
@@ -110,6 +110,15 @@ const getPhaseSuccess = function (data) {
 //   $('.phases-content').html(showPhasesHtml)
 // }
 
+const editPhaseSuccess = () => {
+  $('.edit-phase-modal-message').html('Edits made! :D').addClass('successMessage')
+  console.log('Edited phase!')
+}
+
+const editPhaseFailure = () => {
+  console.log('Edited Phase!')
+}
+
 const clearPhases = () => {
   $('.phases-content').empty()
 }
@@ -145,10 +154,13 @@ const editFavoriteSongFailure = () => {
 }
 
 const signOutSuccess = function () {
-  $('#sign-in, #sign-up-button')
+  $('#sign-in, #sign-up-button, .sign-up')
     .css({
       'display': 'block'
     })
+  $('#get-all-phases, #create-phase, #create-song, #create-favorite-song, #profile-button, #sign-out').css({
+    'display': 'none'
+  })
   store.user = {}
   console.log('SUCCESSFUL sign out')
 }
@@ -181,5 +193,7 @@ module.exports = {
   getPhasesSuccess,
   getPhasesFailure,
   getPhaseSuccess,
+  editPhaseSuccess,
+  editPhaseFailure,
   clearPhases
 }

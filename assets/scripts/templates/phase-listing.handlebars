@@ -1,7 +1,7 @@
 {{#each favorite_songs as |favorite_song|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
-<div class="col-sm-4" style="min-height: 320px;">
+<div class="col-sm-4" style="min-height: 240px;">
 
       <h2 class="song-listing" data-id="{{favorite_song.id}}">
           "{{favorite_song.song.name}}"
@@ -11,11 +11,11 @@
           <!-- {{favorite_song.songs}} -->
       </h3>
         <h4>The year was {{favorite_song.story_date}}...</h4>
-        <p>Story: {{favorite_song.story}}</p>
+        <p>{{favorite_song.story}}</p>
 
 
   <!-- Edit Favorite Song Modal BUTTON -->
-  <a href="#edit-favorite-song-{{favorite_song.id}}-modal" class="listing-edit" data-toggle="modal">
+  <a href="#" data-target="#edit-favorite-song-{{favorite_song.id}}-modal" class="listing-edit" data-toggle="modal">
     Edit this story
   </a>
   <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-favorite-song-{{favorite_song.id}}-modal">

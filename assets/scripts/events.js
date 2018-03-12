@@ -6,7 +6,21 @@ const ui = require('./ui')
 const store = require('./store')
 
 const addHandlers = () => {
-  $('#sign-up').on('click', function (event) {
+  const originalModal = $('#sign-up-inner').clone()
+  // This resets the sign up modal after someone opens and closes said modal
+  $('#sign-up-modal').on('hidden.bs.modal', function () {
+    const myClone = originalModal.clone()
+    $(this).html(myClone)
+    // re-assign sign-up event listener
+    $('#sign-up').on('submit', function (event) {
+      event.preventDefault()
+      const data = getFormFields(this)
+      api.signUp(data)
+        .then(ui.signUpSuccess)
+        .catch(ui.signUpFailure)
+    })
+  })
+  $('#sign-up').on('submit', function (event) {
     event.preventDefault()
     console.log('hello sign me up???')
     const data = getFormFields(this)
@@ -65,17 +79,9 @@ const addHandlers = () => {
     }
   })
 
-  // $('#get-favorite-songs').on('submit', function (event) {
-  //   event.preventDefault()
-  //   console.log('I want to get favorite songs')
-  //   api.getFavoriteSongs()
-  //     .then(ui.createSongSuccess)
-  //     .catch(ui.createSongFailure)
-  // })
-
   $('#get-all-phases').on('submit', function (event) {
     event.preventDefault()
-    console.log('I want to get all phases')
+    console.log('I want to get all my phases')
     api.getPhases()
       .then(ui.getPhasesSuccess)
       .catch(ui.getPhasesFailure)
@@ -100,12 +106,19 @@ const addHandlers = () => {
     // $(this).closest('form').find('input[type=text], textarea').val('')
   })
 
+  // UPDATE Phases Listing after Edit Submission
+  $('body').on('hidden.bs.modal', '.edit-phase-modal', function () {
+    api.getPhases()
+      .then(ui.getPhasesSuccess)
+      .catch(ui.getPhasesFailure)
+  })
+
   // DELTE PHASE
   $('body').on('click', '.phase-delete-button', function (event) {
     event.preventDefault()
     console.log('I want to delete this phase')
     api.deletePhase($(this).attr('data-id'))
-    $(this).closest('ul').toggleClass('hidden')
+    $(this).closest('div').toggleClass('hidden')
   })
 
   $('#create-phase').on('submit', function (event) {

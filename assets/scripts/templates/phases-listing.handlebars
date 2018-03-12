@@ -1,40 +1,42 @@
 {{#each phases as |phase|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
-  <ul>
-    <li>
+<div>
       <h1 data-id="{{phase.id}}">
         <small>
-          Name: {{phase.name}}
+          {{phase.name}}
           <!-- ID: {{phase.id}} -->
           <!-- userid: {{phase.user.id}} -->
         </small>
       </h1>
-    </li>
-    <li>
+
         Dates: {{phase.start_date}} - {{phase.end_date}}
 
-    </li>
-    <li>
-      <button type="button" class="get-phase-button" data-id={{phase.id}}>
+<p>
+  <a href="#" class="get-phase-button listing-edit" data-id={{phase.id}}>
+  View this phase
+</a>
+|
+      <!-- <button type="button" class="get-phase-button" data-id={{phase.id}}>
         View Phase
       </button>
-    </li>
-    <li>
-      <button type="button" class="phase-delete-button" data-id={{phase.id}}>
-        Remove
-      </button>
-    </li>
-  </ul>
+| -->
 
-  <!-- Edit Favorite Song Modal BUTTON -->
-  <form class="phase-modal-button">
+  <!-- Edit Phase Modal BUTTON -->
+    <a href="#"class="listing-edit" data-toggle="modal" data-target="#edit-phase-{{phase.id}}-modal">
+    Edit this phase
+  </a>
+|
+  <a href="#"class="listing-edit phase-delete-button" data-id={{phase.id}}>
+  Delete this phase
+</a>
+  <!-- <form class="phase-modal-button">
     <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#edit-phase-{{phase.id}}-modal">
     Edit this phase
   </button>
-  </form>
-
-  <!-- Edit Favorite Song Modal -->
+  </form> -->
+</p>
+  <!-- Edit Phase Modal -->
       <div class="modal fade edit-phase-modal" id="edit-phase-{{phase.id}}-modal" data-id="{{phase.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" id="edit-phase-inner" role="document">
           <div class="modal-content">
@@ -48,8 +50,8 @@
               <form class="form-group edit-phase" data-id="{{phase.id}}">
                 <fieldset id="edit-phase-{{phase.id}}-form">
                   <div>
-                    <h2>{{phase.name}}</h2>
-                    <h3>{{phase.start_date}} through {{phase.end_date}}</h3>
+                    <h2 class="phase-editor-name">{{phase.name}}</h2>
+                    <h3 class="phase-editor-start-date">{{phase.start_date}} through {{phase.end_date}}</h3>
                   <div class="form-group col-sm-12">
                     <label for="exampleInputEmail1">Name</label>
                     <input type="text" name="phase[name]" class="form-control" aria-describedby="emailHelp" value="{{phase.name}}">
@@ -64,7 +66,7 @@
                   </div>
                 </div>
                 </fieldset>
-                <div class="col-sm-12" id="edit-phase-modal-message"></div>
+                <div class="col-sm-12 edit-phase-modal-message" id="edit-phase-modal-message"></div>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary submit-phase-edits">Edit</button>
             </form>
@@ -72,5 +74,5 @@
           </div>
         </div>
       </div>
-
+</div>
 {{/each}}
