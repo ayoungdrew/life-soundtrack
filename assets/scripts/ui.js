@@ -137,7 +137,7 @@ const createFavoriteSongFailure = function (error) {
 }
 
 const editFavoriteSongSuccess = () => {
-  $('#edit-favorite-song-modal-message').html('Edits made! :D').addClass('successMessage')
+  $('.edit-favorite-song-modal-message').html('Edits made! :D').addClass('successMessage')
   console.log('Edited favorite song!')
 }
 

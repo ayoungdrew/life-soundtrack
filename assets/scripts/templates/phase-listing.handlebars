@@ -1,42 +1,37 @@
 {{#each favorite_songs as |favorite_song|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
-  <ul>
-    <li>
-      <h1 data-id="{{favorite_song.id}}">
-        <small>
-          Name: {{favorite_song.song.name}}
-          Artist: {{favorite_song.song.artist}}
+<div class="col-sm-4" style="min-height: 320px;">
+
+      <h2 class="song-listing" data-id="{{favorite_song.id}}">
+          "{{favorite_song.song.name}}"
+      </h2>
+      <h3 class ="song-artist-listing">
+          {{favorite_song.song.artist}}
           <!-- {{favorite_song.songs}} -->
-        </small>
-      </h1>
-    </li>
-    <li>
-      {{#if favorite_song.story}}
-        Story Date: {{favorite_song.story_date}}
-        Story: {{favorite_song.story}}
-      {{else}}
-        No story provided
-      {{/if}}
-    </li>
-    <!-- <li>
-      <button type="button" class="favorite-song-edit-button" data-id={{favorite_song.id}}>
-        Edit
-      </button>
-    </li> -->
-    <li>
-      <button type="button" class="favorite-song-delete-button" data-id={{favorite_song.id}}>
-        Remove
-      </button>
-    </li>
-  </ul>
+      </h3>
+        <h3>Story Date: {{favorite_song.story_date}}</h3>
+        <p>Story: {{favorite_song.story}}</p>
+
 
   <!-- Edit Favorite Song Modal BUTTON -->
-  <form class="favorite-song-modal-button">
-    <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#edit-favorite-song-{{favorite_song.id}}-modal">
+  <a href="#edit-favorite-song-{{favorite_song.id}}-modal" class="listing-edit" data-toggle="modal">
     Edit this story
-  </button>
-  </form>
+  </a>
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-favorite-song-{{favorite_song.id}}-modal">
+    Edit this story
+  </button> -->
+
+  <!-- DELETE Favorite Song Modal BUTTON -->
+  |
+  <a href="#" class="listing-edit favorite-song-delete-button" data-id={{favorite_song.id}}>
+    Remove
+  </a>
+
+  <!-- <button type="button" class="btn btn-primary favorite-song-delete-button" data-id={{favorite_song.id}}>
+    Remove
+  </button> -->
+</div>
 
   <!-- Edit Favorite Song Modal -->
       <div class="modal fade edit-favorite-song-modal" id="edit-favorite-song-{{favorite_song.id}}-modal" data-id="{{favorite_song.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -52,7 +47,7 @@
               <form class="form-group edit-favorite-song" data-id="{{favorite_song.id}}">
                 <fieldset id="edit-favorite-song-{{favorite_song.id}}-form">
                   <div>
-                    <h2>{{favorite_song.song.name}}</h2>
+                    <h2>"{{favorite_song.song.name}}"</h2>
                     <h3>{{favorite_song.song.artist}}</h3>
                   <div class="form-group col-sm-6">
                     <label for="exampleInputPassword">Story Date</label>
@@ -65,7 +60,7 @@
                   </div>
                 </div>
                 </fieldset>
-                <div class="col-sm-12" id="edit-favorite-song-modal-message"></div>
+                <div id="edit-favorite-song-modal-message" class="col-sm-12 edit-favorite-song-modal-message"></div>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary submit-favorite-song-edits">Edit</button>
             </form>

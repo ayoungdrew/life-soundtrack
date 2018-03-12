@@ -2,6 +2,31 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+.song-listing {
+  margin: 5px 0;
+}
+
+.song-artist-listing {
+  margin: 5px;
+}
+
+.listing-edit {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.spacer20 {
+  margin-top: 20px;
+}
+
+.spacer40 {
+  height: 40px;
+}
+
+.spacer80 {
+  height: 280px;
+}
+
 .modal-title {
   display: inline;
 }
