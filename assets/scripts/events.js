@@ -113,6 +113,14 @@ const addHandlers = () => {
     $(this).closest('ul').toggleClass('hidden')
   })
 
+  // EDIT FAVORITE SONG
+  $('body').on('click', '.favorite-song-delete-button', function (event) {
+    event.preventDefault()
+    console.log('I want to delete this phase')
+    api.deleteFavoriteSong($(this).attr('data-id'))
+    $(this).closest('ul').toggleClass('hidden')
+  })
+
   $('#create-phase').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
