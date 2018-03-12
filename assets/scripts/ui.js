@@ -55,13 +55,23 @@ const getSongsSuccess = function (data) {
 const getSongsFailure = function (error) {
   console.error(error)
 }
+
+const fillEmptyForms = function () {
+  $('#alert-modal').modal('toggle')
+  $('#alert-modal-message').text(`Fill out the form!`)
+}
+
 const createSongSuccess = function (data) {
   console.log(data)
   console.log('Song ID is', data.song.id)
+  $('#alert-modal').modal('toggle')
+  $('#alert-modal-message').text(`Success! "${data.song.name}" by ${data.song.artist} added to database.`)
 }
 
 const createSongFailure = function (error) {
   console.error(error)
+  $('#alert-modal').modal('toggle')
+  $('#alert-modal-message').text(`Fail!`)
 }
 
 const getPhasesSuccess = function (data) {
@@ -126,6 +136,15 @@ const createFavoriteSongFailure = function (error) {
   console.error(error)
 }
 
+const editFavoriteSongSuccess = () => {
+  $('#edit-favorite-song-modal-message').html('Edits made! :D').addClass('successMessage')
+  console.log('Edited favorite song!')
+}
+
+const editFavoriteSongFailure = () => {
+  console.log('Edited favorite song!')
+}
+
 const signOutSuccess = function () {
   $('#sign-in, #sign-up-button')
     .css({
@@ -151,12 +170,15 @@ module.exports = {
   signOutFailure,
   getSongsSuccess,
   getSongsFailure,
+  fillEmptyForms,
   createSongSuccess,
   createSongFailure,
   getFavoriteSongsSuccess,
   getFavoriteSongsFailure,
   createFavoriteSongSuccess,
   createFavoriteSongFailure,
+  editFavoriteSongSuccess,
+  editFavoriteSongFailure,
   getPhasesSuccess,
   getPhasesFailure,
   getPhaseSuccess,

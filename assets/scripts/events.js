@@ -28,11 +28,7 @@ const addHandlers = () => {
 
   $('#profile-button').on('submit', function (event) {
     event.preventDefault()
-    // console.log('My game history plzzzzzz')
     $('#change-password-message').text('')
-    // api.getAllGames()
-    //   .then(ui.getAllGamesSuccess)
-    //   .catch(ui.getAllGamesFailure)
   })
 
   $('#change-password').on('submit', function (event) {
@@ -57,28 +53,25 @@ const addHandlers = () => {
     event.preventDefault()
     const data = getFormFields(this)
     console.log('I want to create a song')
-    // console.log(data)
-
     console.log(data)
-    api.createSong(data)
-      .then(ui.createSongSuccess)
-      .catch(ui.createSongFailure)
+    if (data.song.name === '' || data.song.artist === '') {
+      ui.fillEmptyForms()
+    } else {
+      api.createSong(data)
+        .then(ui.createSongSuccess)
+        .catch(function () {
+          $('#alert-modal').modal('toggle')
+          $('#alert-modal-message').text(`Ohh, "${data.song.name}" by ${data.song.artist} is already in the database you silly goose! Go ahead and add your favorite song story now :)`)
+        })
+    }
   })
 
-  $('#get-favorite-songs').on('submit', function (event) {
-    event.preventDefault()
-    console.log('I want to get favorite songs')
-    api.getFavoriteSongs()
-      .then(ui.createSongSuccess)
-      .catch(ui.createSongFailure)
-  })
-
-  // $('.get-phase').on('submit', function (event) {
+  // $('#get-favorite-songs').on('submit', function (event) {
   //   event.preventDefault()
-  //   console.log('I want to get one phase')
-  //   api.getPhase()
-  //     .then(ui.getPhaseSuccess)
-  //     .catch(ui.getPhaseFailure)
+  //   console.log('I want to get favorite songs')
+  //   api.getFavoriteSongs()
+  //     .then(ui.createSongSuccess)
+  //     .catch(ui.createSongFailure)
   // })
 
   $('#get-all-phases').on('submit', function (event) {
@@ -97,6 +90,17 @@ const addHandlers = () => {
       .then(ui.getPhaseSuccess)
   })
 
+  // EDIT PHASE
+  $('body').on('submit', '.edit-phase', function (event) {
+    event.preventDefault()
+    const data = getFormFields(this)
+    console.log('I want to edit this phase')
+    api.editPhase($(this).attr('data-id'), data)
+      .then(ui.editPhaseSuccess)
+      .catch(ui.editPhaseFailure)
+    // $(this).closest('form').find('input[type=text], textarea').val('')
+  })
+
   // DELTE PHASE
   $('body').on('click', '.phase-delete-button', function (event) {
     event.preventDefault()
@@ -105,7 +109,55 @@ const addHandlers = () => {
     $(this).closest('ul').toggleClass('hidden')
   })
 
-  // DELETE FAVORITE SONG PHASE
+  $('#create-phase').on('submit', function (event) {
+    event.preventDefault()
+    const data = getFormFields(this)
+    console.log('I want to create a phase')
+    console.log(data)
+    if (data.phase.name === '' || data.phase.start_date === '' || data.phase.end_date === '') {
+      console.log('fill forms plz')
+      ui.fillEmptyForms()
+    } else {
+      api.createPhase(data)
+        .then(ui.createPhaseSuccess)
+        .catch(ui.createPhaseFailure)
+    }
+  })
+
+  // CREATE FAVORITE SONG
+  //  THIS WORKS
+  $('#create-favorite-song').on('submit', function (event) {
+    event.preventDefault()
+    const data = getFormFields(this)
+    const isEmpty = (value) => {
+      return value === ''
+    }
+    console.log(data)
+    console.log(data.favorite_song)
+    if (Object.values(data.favorite_song).some(isEmpty)) {
+      ui.fillEmptyForms()
+    } else {
+      api.getSongs()
+        .then(ui.getSongsSuccess)
+        .catch(ui.getSongsFailure)
+        .then(data.favorite_song.user_id = store.user.id)
+        .then(function () {
+          for (let i = 0; i < store.songs.length; i++) {
+            if ((data.favorite_song.name === store.songs[i].name) && (data.favorite_song.artist === store.songs[i].artist)) {
+              data.favorite_song.song_id = store.songs[i].id
+            }
+          }
+        })
+        .then(function () {
+          console.log('plz work', data)
+          api.createFavoriteSong(data)
+            .then(ui.createFavoriteSongSuccess)
+            .catch(ui.createFavoriteSongFailure)
+        })
+    }
+  })
+
+  // DELETE FAVORITE SONG
   $('body').on('click', '.favorite-song-delete-button', function (event) {
     event.preventDefault()
     console.log('I want to delete this phase')
@@ -114,88 +166,17 @@ const addHandlers = () => {
   })
 
   // EDIT FAVORITE SONG
-  $('body').on('click', '.favorite-song-delete-button', function (event) {
-    event.preventDefault()
-    console.log('I want to delete this phase')
-    api.deleteFavoriteSong($(this).attr('data-id'))
-    $(this).closest('ul').toggleClass('hidden')
-  })
-
-  $('#create-phase').on('submit', function (event) {
+  // $('.edit-favorite-song').on('submit', function (event) {
+  $('body').on('submit', '.edit-favorite-song', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
-    console.log('I want to create a phase')
-    // console.log(data)
-    console.log(store.user.token)
-    console.log(data)
-    api.createPhase(data)
-      .then(ui.createPhaseSuccess)
-      .catch(ui.createPhaseFailure)
+    console.log('I want to edit this favorite song')
+    api.editFavoriteSong($(this).attr('data-id'), data)
+      .then(ui.editFavoriteSongSuccess)
+      .catch(ui.editFavoriteSongFailure)
+    // $(this).closest('form').find('input[type=text], textarea').val('')
   })
 
-  //  THIS WORKS
-  $('#create-favorite-song').on('submit', function (event) {
-    event.preventDefault()
-    const data = getFormFields(this)
-    api.getSongs()
-      .then(ui.getSongsSuccess)
-      .catch(ui.getSongsFailure)
-      .then(data.favorite_song.user_id = store.user.id)
-      .then(function () {
-        for (let i = 0; i < store.songs.length; i++) {
-          if ((data.favorite_song.name === store.songs[i].name) && (data.favorite_song.artist === store.songs[i].artist)) {
-            data.favorite_song.song_id = store.songs[i].id
-          }
-        }
-      })
-      .then(function () {
-        console.log('plz work', data)
-        api.createFavoriteSong(data)
-          .then(ui.createFavoriteSongSuccess)
-          .catch(ui.createFavoriteSongFailure)
-      })
-  })
-
-  // $('#create-favorite-song').on('submit', function (event) {
-  //   event.preventDefault()
-  //   const data = getFormFields(this)
-  //   const newSongData = {song: {name: data.favorite_song.name, artist: data.favorite_song.artist}}
-  //   api.createSongGetSongs(newSongData)
-  //         .then(ui.getSongsSuccess)
-  //         .then(data.favorite_song.user_id = store.user.id)
-  //         .then(function () {
-  //           for (let i = 0; i < store.songs.length; i++) {
-  //             if ((data.favorite_song.name === store.songs[i].name) && (data.favorite_song.artist === store.songs[i].artist)) {
-  //               data.favorite_song.song_id = store.songs[i].id
-  //             }
-  //           }
-  //           console.log('plz work', data)
-  //           api.createFavoriteSong(data)
-  //             .then(ui.createFavoriteSongSuccess)
-  //             .catch(ui.createFavoriteSongFailure)
-  //         })
-  //
-  //
-  //     .catch(
-  //       api.getSongs()
-  //         .then(ui.getSongsSuccess)
-  //         .then(data.favorite_song.user_id = store.user.id)
-  //         .then(function () {
-  //           for (let i = 0; i < store.songs.length; i++) {
-  //             if ((data.favorite_song.name === store.songs[i].name) && (data.favorite_song.artist === store.songs[i].artist)) {
-  //               data.favorite_song.song_id = store.songs[i].id
-  //             }
-  //           }
-  //         })
-  //         .then(function () {
-  //           console.log('plz work', data)
-  //           api.createFavoriteSong(data)
-  //             .then(ui.createFavoriteSongSuccess)
-  //             .catch(ui.createFavoriteSongFailure)
-  //         })
-  //     )
-  // }
-  // )
   $('#sign-out').on('submit', function (event) {
     event.preventDefault()
     console.log('I want to sign out plz')

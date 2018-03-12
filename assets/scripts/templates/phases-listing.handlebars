@@ -27,4 +27,50 @@
     </li>
   </ul>
 
+  <!-- Edit Favorite Song Modal BUTTON -->
+  <form class="phase-modal-button">
+    <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#edit-phase-{{phase.id}}-modal">
+    Edit this phase
+  </button>
+  </form>
+
+  <!-- Edit Favorite Song Modal -->
+      <div class="modal fade edit-phase-modal" id="edit-phase-{{phase.id}}-modal" data-id="{{phase.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="edit-phase-inner" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="form-group edit-phase" data-id="{{phase.id}}">
+                <fieldset id="edit-phase-{{phase.id}}-form">
+                  <div>
+                    <h2>{{phase.name}}</h2>
+                    <h3>{{phase.start_date}} through {{phase.end_date}}</h3>
+                  <div class="form-group col-sm-12">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" name="phase[name]" class="form-control" aria-describedby="emailHelp" value="{{phase.name}}">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="exampleInputPassword">Phase Start Date</label>
+                    <input type="text" name="phase[start_date]" class="form-control" aria-describedby="emailHelp" value="{{phase.start_date}}">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="exampleInputPassword">Phase End Date</label>
+                    <input type="text" name="phase[end_date]" class="form-control" aria-describedby="emailHelp" value="{{phase.end_date}}">
+                  </div>
+                </div>
+                </fieldset>
+                <div class="col-sm-12" id="edit-phase-modal-message"></div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary submit-phase-edits">Edit</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
 {{/each}}

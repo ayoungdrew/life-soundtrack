@@ -30,14 +30,16 @@
       </button>
     </li>
   </ul>
-  <form id="favorite-song-modal-button" class="favorite-song-modal-button">
-    <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#edit-favorite-song-modal">
+
+  <!-- Edit Favorite Song Modal BUTTON -->
+  <form class="favorite-song-modal-button">
+    <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#edit-favorite-song-{{favorite_song.id}}-modal">
     Edit this story
   </button>
   </form>
 
   <!-- Edit Favorite Song Modal -->
-      <div class="modal fade" data-id="{{favorite_song.id}}" id="edit-favorite-song-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade edit-favorite-song-modal" id="edit-favorite-song-{{favorite_song.id}}-modal" data-id="{{favorite_song.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" id="edit-favorite-song-inner" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -47,25 +49,25 @@
               </button>
             </div>
             <div class="modal-body">
-              <form id="edit-favorite-song" class="form-group">
-                <fieldset id="signUpForms">
+              <form class="form-group edit-favorite-song" data-id="{{favorite_song.id}}">
+                <fieldset id="edit-favorite-song-{{favorite_song.id}}-form">
                   <div>
                     <h2>{{favorite_song.song.name}}</h2>
                     <h3>{{favorite_song.song.artist}}</h3>
                   <div class="form-group col-sm-6">
                     <label for="exampleInputPassword">Story Date</label>
-                    <input type="text" name="favorite_song[password]" class="form-control" aria-describedby="emailHelp" value="{{favorite_song.story_date}}">
+                    <input type="text" name="favorite_song[story_date]" class="form-control" aria-describedby="emailHelp" value="{{favorite_song.story_date}}">
                   </div>
                   <div class="form-group col-sm-12">
                     <label for="exampleInputEmail1">Story</label>
-                    <input type="text" name="favorite_song[email]" class="form-control" aria-describedby="emailHelp" value="{{favorite_song.story}}">
+                    <input type="text" name="favorite_song[story]" class="form-control" aria-describedby="emailHelp" value="{{favorite_song.story}}">
                     <small class="form-text text-muted">We'll also send you newsletters and a bunch of tic-tac-toe related spam roflmao fml</small>
                   </div>
                 </div>
                 </fieldset>
                 <div class="col-sm-12" id="edit-favorite-song-modal-message"></div>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="submit-favorite-song-edits" type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary submit-favorite-song-edits">Edit</button>
             </form>
             </div>
           </div>

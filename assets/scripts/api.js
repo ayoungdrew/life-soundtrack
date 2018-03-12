@@ -83,8 +83,8 @@ const createPhase = function (data) { // this is the POST verb
 
 const editPhase = function (dataId, data) { // this is the POST verb
   return $.ajax({
-    url: config.apiOrigin + '/phases' + dataId,
-    method: 'POST',
+    url: config.apiOrigin + '/phases/' + dataId,
+    method: 'PATCH',
     headers: {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
@@ -163,6 +163,18 @@ const createFavoriteSong = function (data) { // this is the POST verb
   })
 }
 
+const editFavoriteSong = function (dataId, data) { // this is the POST verb
+  return $.ajax({
+    url: config.apiOrigin + '/favorite_songs/' + dataId,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const signOut = function (data) { // this is the POST verb
   return $.ajax({
     url: config.apiOrigin + '/sign-out',
@@ -183,6 +195,7 @@ module.exports = {
   createSong,
   getFavoriteSongs,
   createFavoriteSong,
+  editFavoriteSong,
   createSongGetSongs,
   getPhase,
   getPhases,
