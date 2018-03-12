@@ -18,7 +18,6 @@ const addHandlers = () => {
   $('#sign-in').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
-    console.log(data)
     console.log('I want to sign in plz')
     api.signIn(data)
       .then(ui.signInSuccess)

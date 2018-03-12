@@ -24,11 +24,10 @@ const signInSuccess = function (data) {
   $('#sign-in, #sign-up-button').css({
     'display': 'none'
   })
-  console.log(data)
   store.user = data.user
-  console.log('SUCCESSFUL sign in')
-  console.log('AJAX data returned:', data)
-  console.log(data.user)
+  // console.log('SUCCESSFUL sign in')
+  // console.log('AJAX data returned:', data)
+  // console.log(data.user)
 }
 
 const signInFailure = function (error) {
