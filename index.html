@@ -79,7 +79,7 @@
   <div class="col-sm-12" style="background-color: rgba(230,240,250,1); height: 100px;">safg</div>
   <!-- <div class="col-sm-6" style="background-color: red; height: 500px;"></div> -->
 
-<div>
+<div class="container">
 <!-- Sign In-->
   <form id="sign-in" class="col-sm-6">
     <h2>Background music of your life :D</h2>
@@ -147,37 +147,37 @@
     <!--end of Sign-up Modal-->
 
     <!-- Get all songs -->
-      <form id="get-songs" class="col-sm-6">
+      <!-- <form id="get-songs" class="col-sm-6 get-songs">
         <h2>Get all songs!</h2>
         <button type="submit" class="btn btn-primary">Get songs</button>
             <div style="float: right;" id="songs-message"></div>
-      </form>
+      </form> -->
 
 <!--End GET ALL SONGS -->
 
 <!-- Start GET PHASES -->
-  <form id="get-all-phases" class="col-sm-6">
+<div class="row">
+  <form id="get-all-phases" class="col-sm-6 get-all-phases">
     <h2>Get all phases!</h2>
     <button type="submit" class="btn btn-primary">Get all phases</button>
         <div style="float: right;" id="phases-container"></div>
   </form>
-
-<div id="phases-content" class="phases-content">
+</div>
+<div id="phases-content" class="row phases-content">
 </div>
 
 <!--End GET ALL PHASES -->
 
-<!-- Start GET PHASES -->
-  <form id="get-phase" class="col-sm-6">
-    <h2>Get all phases!</h2>
+<!-- Start GET PHASE -->
+  <!-- <form id="get-phase" class="col-sm-6 get-phase">
+    <h2>Get specific phase!</h2>
     <button type="submit" class="btn btn-primary">Get specific phase</button>
-  </form>
-</div>
+  </form> -->
 
-<!--End GET ALL PHASES -->
+<!--End GET PHASE -->
 
 <!-- Start CREATE PHASE -->
-  <form id="create-phase" class="col-sm-6">
+  <form id="create-phase" class="col-sm-6 create-phase">
     <h2>Create a phase!</h2>
     <div class="form-group" style="padding-left: 0px;">
       <label for="inputPhaseName">Phase Name</label>
@@ -198,7 +198,7 @@
 <!--End CREATE PHASE -->
 
     <!-- Start CREATE SONG -->
-      <form id="create-song" class="col-sm-6">
+      <form id="create-song" class="col-sm-6 create-song">
         <h2>Create a song!</h2>
         <div class="form-group" style="padding-left: 0px;">
           <label for="inputSongName">Song Name</label>
@@ -215,7 +215,7 @@
 <!--End CREATE SONG -->
 
 <!-- Create Favorite Song -->
-<form id="create-favorite-song" class="col-sm-6">
+<form id="create-favorite-song" class="col-sm-6 create-favorite-song">
   <h2>Create a favorite song!</h2>
   <!-- <div class="form-group" style="padding-left: 0px;">
     <label for="inputUserID">User ID</label>
@@ -316,7 +316,7 @@
 </form>
 
 <!-- End SIGN OUT -->
-
 </div>
+
     </body>
 </html>

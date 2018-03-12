@@ -17,7 +17,7 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#greeting-text, #sign-out, #profile-button')
+  $('#greeting-text, #sign-out, #get-songs, #get-all-phases, #phases-content, #get-phase, #create-phase, #create-song, #create-favorite-song, #profile-button')
     .css({
       'display': 'block'
     })
@@ -75,14 +75,19 @@ const getPhasesSuccess = function (data) {
 }
 
 const getPhaseSuccess = function (data) {
-  console.log('Phases are...', data)
+  console.log('Phase is...', data)
   store.favorite_songs = data.favorite_songs
-  console.log(data)
-  console.log(store.favorite_songs)
-  const showPhaseHtml = showPhaseTemplate({ phases: store.favorite_songs })
+  const showPhaseHtml = showPhaseTemplate({ favorite_songs: store.favorite_songs })
   // we can use `.html` instead of `.append` to get around the need for a
   // clear books button
-  $('.phases-content').html(showPhaseHtml)
+  console.log(store.favorite_songs.length)
+  if (store.favorite_songs.length === 0) {
+    console.log('It\'s empty!')
+    $('.phases-content').html('<p>No favorite songs from this phase in your life :(</p>')
+  } else {
+    console.log('There\'s stuff here yay')
+    $('.phases-content').html(showPhaseHtml)
+  }
 }
 
 // const deletePhaseSuccess = function (data) {

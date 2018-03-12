@@ -6,19 +6,19 @@
       <h1 data-id="{{phase.id}}">
         <small>
           Name: {{phase.name}}
-          ID: {{phase.id}}
-          Phase: {{phase}}
-          userid: {{phase.user.id}}
-          <!-- {{phase.songs}} -->
+          <!-- ID: {{phase.id}} -->
+          <!-- userid: {{phase.user.id}} -->
         </small>
       </h1>
     </li>
     <li>
-      {{#if phase.start_date}}
-        Start Date: {{phase.start_date}}
-      {{else}}
-        No start date provided
-      {{/if}}
+        Dates: {{phase.start_date}} - {{phase.end_date}}
+
+    </li>
+    <li>
+      <button type="button" class="get-phase-button" data-id={{phase.id}}>
+        View Phase
+      </button>
     </li>
     <li>
       <button type="button" class="phase-delete-button" data-id={{phase.id}}>

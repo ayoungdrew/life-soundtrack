@@ -58,9 +58,9 @@ const getPhases = function () { // this is the POST verb
   })
 }
 
-const getPhase = function () { // this is the POST verb
+const getPhase = function (dataId) { // this is the POST verb
   return $.ajax({
-    url: config.apiOrigin + '/phases/1',
+    url: config.apiOrigin + '/phases/' + dataId,
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -83,6 +83,17 @@ const createPhase = function (data) { // this is the POST verb
 const deletePhase = function (dataId) { // this is the POST verb
   return $.ajax({
     url: config.apiOrigin + '/phases/' + dataId,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deleteFavoriteSong = function (dataId) { // this is the POST verb
+  return $.ajax({
+    url: config.apiOrigin + '/favorite_songs/' + dataId,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',
@@ -164,5 +175,6 @@ module.exports = {
   getPhases,
   createPhase,
   deletePhase,
+  deleteFavoriteSong,
   signOut
 }

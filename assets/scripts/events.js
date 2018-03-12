@@ -73,13 +73,13 @@ const addHandlers = () => {
       .catch(ui.createSongFailure)
   })
 
-  $('#get-phase').on('submit', function (event) {
-    event.preventDefault()
-    console.log('I want to get one phase')
-    api.getPhase()
-      .then(ui.getPhaseSuccess)
-      .catch(ui.getPhaseFailure)
-  })
+  // $('.get-phase').on('submit', function (event) {
+  //   event.preventDefault()
+  //   console.log('I want to get one phase')
+  //   api.getPhase()
+  //     .then(ui.getPhaseSuccess)
+  //     .catch(ui.getPhaseFailure)
+  // })
 
   $('#get-all-phases').on('submit', function (event) {
     event.preventDefault()
@@ -89,11 +89,27 @@ const addHandlers = () => {
       .catch(ui.getPhasesFailure)
   })
 
+  // SHOW THIS PHASE
+  $('body').on('click', '.get-phase-button', function (event) {
+    event.preventDefault()
+    console.log('I want to delete this phase')
+    api.getPhase($(this).attr('data-id'))
+      .then(ui.getPhaseSuccess)
+  })
+
   // DELTE PHASE
   $('body').on('click', '.phase-delete-button', function (event) {
     event.preventDefault()
     console.log('I want to delete this phase')
     api.deletePhase($(this).attr('data-id'))
+    $(this).closest('ul').toggleClass('hidden')
+  })
+
+  // DELETE FAVORITE SONG PHASE
+  $('body').on('click', '.favorite-song-delete-button', function (event) {
+    event.preventDefault()
+    console.log('I want to delete this phase')
+    api.deleteFavoriteSong($(this).attr('data-id'))
     $(this).closest('ul').toggleClass('hidden')
   })
 

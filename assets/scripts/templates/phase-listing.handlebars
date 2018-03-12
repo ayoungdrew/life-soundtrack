@@ -1,26 +1,26 @@
-{{#each phases as |phase|}}
+{{#each favorite_songs as |favorite_song|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
   <ul>
     <li>
-      <h1 data-id="{{phase.id}}">
+      <h1 data-id="{{favorite_song.id}}">
         <small>
-          Name: {{phase.song.name}}
-          Artist: {{phase.song.artist}}
-          <!-- {{phase.songs}} -->
+          Name: {{favorite_song.song.name}}
+          Artist: {{favorite_song.song.artist}}
+          <!-- {{favorite_song.songs}} -->
         </small>
       </h1>
     </li>
     <li>
-      {{#if phase.story}}
-        Story Date: {{phase.story_date}}
-        Story: {{phase.story}}
+      {{#if favorite_song.story}}
+        Story Date: {{favorite_song.story_date}}
+        Story: {{favorite_song.story}}
       {{else}}
         No story provided
       {{/if}}
     </li>
     <li>
-      <button type="button" class="phase-delete-button" data-id={{phase.id}}>
+      <button type="button" class="favorite-song-delete-button" data-id={{favorite_song.id}}>
         Remove
       </button>
     </li>
