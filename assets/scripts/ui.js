@@ -17,11 +17,11 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#greeting-text, #sign-out, #get-songs, #get-all-phases, #phases-content, #get-phase, #create-phase, #create-song, #create-favorite-song, #profile-button')
+  $('#greeting-text, #sign-out, #get-songs, #get-all-phases, #phases-content, #get-phase, #create-phase, #create-song, #create-favorite-song, #profile-button, #phases-content')
     .css({
       'display': 'block'
     })
-  $('#sign-in, #sign-up-button, .sign-up').css({
+  $('#sign-in, #sign-up-button, .sign-up, .intro-header').css({
     'display': 'none'
   })
   store.user = data.user
@@ -109,6 +109,15 @@ const getPhaseSuccess = function (data) {
 //   // clear books button
 //   $('.phases-content').html(showPhasesHtml)
 // }
+const createPhaseSuccess = (data) => {
+  $('#alert-modal').modal('toggle')
+  $('#alert-modal-message').text(`Created new phase: ${data.phase.name} (${data.phase.start_date} - ${data.phase.end_date})`)
+}
+
+const createPhaseFailure = () => {
+  $('#alert-modal').modal('toggle')
+  $('#alert-modal-message').text(`Failed to create new phase :(`)
+}
 
 const editPhaseSuccess = () => {
   $('.edit-phase-modal-message').html('Edits made! :D').addClass('successMessage')
@@ -136,12 +145,13 @@ const getFavoriteSongsFailure = function (error) {
 }
 
 const createFavoriteSongSuccess = function (data) {
-  console.log('you rock')
+  $('#alert-modal').modal('toggle')
+  $('#alert-modal-message').text('Your story was added!')
 }
 
-const createFavoriteSongFailure = function (error) {
-  console.log('you failed to create favorite song')
-  console.error(error)
+const createFavoriteSongFailure = function () {
+  $('#alert-modal').modal('toggle')
+  $('#alert-modal-message').text('Failed :( Add the song to the database first!')
 }
 
 const editFavoriteSongSuccess = () => {
@@ -154,13 +164,14 @@ const editFavoriteSongFailure = () => {
 }
 
 const signOutSuccess = function () {
-  $('#sign-in, #sign-up-button, .sign-up')
+  $('#sign-in, #sign-up-button, .sign-up, .intro-header')
     .css({
       'display': 'block'
     })
   $('#get-all-phases, #create-phase, #create-song, #create-favorite-song, #profile-button, #sign-out').css({
     'display': 'none'
   })
+  $('#phases-content').empty()
   store.user = {}
   console.log('SUCCESSFUL sign out')
 }
@@ -193,6 +204,8 @@ module.exports = {
   getPhasesSuccess,
   getPhasesFailure,
   getPhaseSuccess,
+  createPhaseSuccess,
+  createPhaseFailure,
   editPhaseSuccess,
   editPhaseFailure,
   clearPhases

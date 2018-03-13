@@ -38,8 +38,10 @@
               <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
               <li><a href="#">Link</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right sign-up">
-              <li><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="profile-button" class="profile-button" style="display: none;" data-toggle="modal" data-target="#user-profile">Profile</a></li>
+              <li><a href="#" class="sign-up"data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+              <li><a href="#" id="sign-out" class="sign-out" style="display: none;">Sign Out</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -48,8 +50,14 @@
 <!-- NAVBAR ENDS HERE WOOOOOHOOOOOOOO~~~~!!!! -->
 
 
-  <div class="col-sm-12" style="background-color: rgba(230,240,250,1); height: 100px;">safg</div>
-  <!-- <div class="col-sm-6" style="background-color: red; height: 500px;"></div> -->
+  <div class="row intro-header" style="background-color: rgba(230,240,250,1); height: 100px;">
+    <div class="col-sm-6" style="background-color: black; height: 500px;">
+      <div class="cta-wrapper"
+      <h2 style="color: white;">Oh did you come here for a silky smooth user experience?</h2>
+    </div>
+    </div>
+    <div class="col-sm-6" style="background-color: red; height: 500px;"></div>
+  </div>
 
 <div class="container">
 <!-- Sign In-->
@@ -221,11 +229,11 @@
 
 <!--Start Profile -->
 <!-- User profile modal Button-->
-  <form id="profile-button" class="profile-button">
+  <!-- <form id="profile-button" class="profile-button">
   <button type="submit" class="btn btn-primary spacer20" data-toggle="modal" data-target="#user-profile">
     Your Profile
   </button>
-  </form>
+  </form> -->
   <!-- User profile modal  -->
   <div class="modal fade" id="user-profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -281,11 +289,11 @@
 <!-- End PROFILE -->
 
 <!--Start Sign Out -->
-<form id="sign-out" class="border sign-out">
+<!-- <form id="sign-out" class="border sign-out">
     <button type="submit" class="btn btn-primary spacer20">
       Sign out
     </button>
-</form>
+</form> -->
 
 <!-- End SIGN OUT -->
 </div>

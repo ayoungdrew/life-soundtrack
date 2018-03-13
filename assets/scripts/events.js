@@ -65,7 +65,6 @@ const addHandlers = () => {
   $('#create-song').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
-    console.log('I want to create a song')
     console.log(data)
     if (data.song.name === '' || data.song.artist === '') {
       ui.fillEmptyForms()
@@ -101,7 +100,7 @@ const addHandlers = () => {
     const data = getFormFields(this)
     console.log('I want to edit this phase')
     api.editPhase($(this).attr('data-id'), data)
-      .then(ui.editPhaseSuccess)
+      .then(ui.editPhaseSuccess(data))
       .catch(ui.editPhaseFailure)
     // $(this).closest('form').find('input[type=text], textarea').val('')
   })
@@ -124,10 +123,9 @@ const addHandlers = () => {
   $('#create-phase').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
-    console.log('I want to create a phase')
-    console.log(data)
+    // console.log('I want to create a phase')
+    // console.log(data)
     if (data.phase.name === '' || data.phase.start_date === '' || data.phase.end_date === '') {
-      console.log('fill forms plz')
       ui.fillEmptyForms()
     } else {
       api.createPhase(data)
@@ -189,7 +187,7 @@ const addHandlers = () => {
     // $(this).closest('form').find('input[type=text], textarea').val('')
   })
 
-  $('#sign-out').on('submit', function (event) {
+  $('#sign-out').on('click', function (event) {
     event.preventDefault()
     console.log('I want to sign out plz')
     api.signOut()

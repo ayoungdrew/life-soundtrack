@@ -2,6 +2,21 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+.cta-wrapper {
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translate(0,-50%);
+  -moz-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  -o-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  font-size: 1.8vw;
+  z-index: 13;
+  left: 0;
+  margin: 0 3%;
+  width: 54%;
+}
+
 .song-listing {
   margin: 5px 0;
 }
@@ -43,7 +58,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin-bottom: 10px;
 }
 
-.profile-button {
+.sign-out {
+  display: none;
+}
+
+.hidden {
   display: none;
 }
 
@@ -76,9 +95,5 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .create-favorite-song {
-  display: none;
-}
-
-.sign-out {
   display: none;
 }
