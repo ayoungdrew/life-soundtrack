@@ -8,7 +8,7 @@ const signUpSuccess = function (data) {
     'display': 'none'
   })
   // $('#signUpModal').modal('toggle')
-  console.log(data)
+  // console.log(data)
 }
 
 const signUpFailure = function (error) {
@@ -31,14 +31,16 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  console.log('FAILED to sign in')
+  // console.log('FAILED to sign in')
+  $('#alert-modal').modal('toggle')
+  $('#alert-modal-message').text(`Failed to log in.`)
   console.error(error)
 }
 
 const changePasswordSuccess = function (data) {
   $('#change-password-message').html('Successfully changed password').attr('class', 'successMessage')
-  console.log(data)
-  console.log(store.user)
+  // console.log(data)
+  // console.log(store.user)
 }
 
 const changePasswordFailure = function (error) {
@@ -61,8 +63,8 @@ const fillEmptyForms = function () {
 }
 
 const createSongSuccess = function (data) {
-  console.log(data)
-  console.log('Song ID is', data.song.id)
+  // console.log(data)
+  // console.log('Song ID is', data.song.id)
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text(`Success! "${data.song.name}" by ${data.song.artist} added to database.`)
 }
@@ -74,18 +76,18 @@ const createSongFailure = function (error) {
 }
 
 const getPhasesSuccess = function (data) {
-  console.log('Phases are...', data)
+  // console.log('Phases are...', data)
   store.phases = data.phases
-  console.log(data)
+  // console.log(data)
   if (data.phases.length === 0) {
     $('#alert-modal').modal('toggle')
     $('#alert-modal-message').text(`No phases defined yet!`)
   } else {
-  const showPhasesHtml = showPhasesTemplate({ phases: store.phases })
-  // we can use `.html` instead of `.append` to get around the need for a
-  // clear books button
-  $('.phases-content').html(showPhasesHtml)
-}
+    const showPhasesHtml = showPhasesTemplate({ phases: store.phases })
+    // we can use `.html` instead of `.append` to get around the need for a
+    // clear books button
+    $('.phases-content').html(showPhasesHtml)
+  }
 }
 
 const getPhaseSuccess = function (data) {
@@ -94,12 +96,12 @@ const getPhaseSuccess = function (data) {
   const showPhaseHtml = showPhaseTemplate({ favorite_songs: store.favorite_songs })
   // we can use `.html` instead of `.append` to get around the need for a
   // clear books button
-  console.log(store.favorite_songs.length)
+  // console.log(store.favorite_songs.length)
   if (store.favorite_songs.length === 0) {
     $('#alert-modal').modal('toggle')
     $('#alert-modal-message').text(`No favorite songs from this phase of your life were found. :(`)
   } else {
-    console.log('There\'s stuff here yay')
+    // console.log('There\'s stuff here yay')
     $('.phases-content').html(showPhaseHtml)
   }
 }
@@ -126,11 +128,11 @@ const createPhaseFailure = () => {
 
 const editPhaseSuccess = () => {
   $('.edit-phase-modal-message').html('Edits made! :D').addClass('successMessage')
-  console.log('Edited phase!')
+  // console.log('Edited phase!')
 }
 
 const editPhaseFailure = () => {
-  console.log('Edited Phase!')
+  // console.log('Edited Phase!')
 }
 
 const clearPhases = () => {
@@ -142,7 +144,7 @@ const getPhasesFailure = function (error) {
 }
 
 const getFavoriteSongsSuccess = function (data) {
-  console.log('you rock')
+  // console.log('you rock')
 }
 
 const getFavoriteSongsFailure = function (error) {
@@ -161,11 +163,11 @@ const createFavoriteSongFailure = function () {
 
 const editFavoriteSongSuccess = () => {
   $('.edit-favorite-song-modal-message').html('Edits made! :D').addClass('successMessage')
-  console.log('Edited favorite song!')
+  // console.log('Edited favorite song!')
 }
 
 const editFavoriteSongFailure = () => {
-  console.log('Edited favorite song!')
+  // console.log('Edited favorite song!')
 }
 
 const signOutSuccess = function () {
@@ -178,11 +180,11 @@ const signOutSuccess = function () {
   })
   $('#phases-content').empty()
   store.user = {}
-  console.log('SUCCESSFUL sign out')
+  // console.log('SUCCESSFUL sign out')
 }
 
 const signOutFailure = function (error) {
-  console.log('FAILED to sign out')
+  // console.log('FAILED to sign out')
   console.error(error)
 }
 

@@ -23,7 +23,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .song-artist-listing {
-  margin: 5px;
+  margin: 0;
+}
+
+.song-artist-story-date {
+font-style: italic;
 }
 
 .spacer20 {
@@ -100,6 +104,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
     border-color: #870026;
 }
 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #db95a7;
+    border-color: #ba465f;}; /*set the color you want here*/
+
 .phases-styling {
   background-color: black;
   color: white;
@@ -108,7 +117,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .listing-edit {
   font-size: 14px;
   text-transform: uppercase;
-  color: #ba465f;
+  color: #db95a7;
 }
 
 .edit-favorite-song-modal {
