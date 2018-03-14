@@ -179,6 +179,10 @@ const signOutSuccess = function () {
     'display': 'none'
   })
   $('#phases-content').empty()
+  $('#create-favorite-song').trigger('reset')
+  $('#create-song').trigger('reset')
+  $('#create-phase').trigger('reset')
+  $('#sign-in').trigger('reset')
   store.user = {}
   // console.log('SUCCESSFUL sign out')
 }

@@ -196,9 +196,6 @@ const addHandlers = () => {
   $('#sign-out').on('click', function (event) {
     event.preventDefault()
     // console.log('I want to sign out plz')
-    $('#create-favorite-song').trigger('reset')
-    $('#create-song').trigger('reset')
-    $('#create-phase').trigger('reset')
     api.signOut()
       .then(ui.signOutSuccess)
       .catch(ui.signOutFailure)
