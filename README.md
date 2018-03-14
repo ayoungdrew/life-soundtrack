@@ -1,3 +1,6 @@
+https://ayoungdrew.github.io/life-soundtrack-front/
+https://life-soundtrack-back.herokuapp.com/
+
 ### Technologies used
 -Javascript
 -jQuery
@@ -6,7 +9,7 @@
 -Bootstrap framework
 
 ### Project Intro: Life Soundtrack
-Everyone went through that phase where they couldn’t take that one Natalie Imbruglia song off of repeat or only listened to Queen for 4 months. Music has a way of invoking feeling that other mediums can’t. Life Soundtrack is a journal of your life through your attachment with music. LS is a database of all the songs that are important to you, grouped by the years they were significant. Users can also create Class groupings called “Phases” which are ways of organizing songs by a time frame, like the four years you were in high school. Or that one year when you couldn’t get over your ex-girlfriend. Each song is unique entry that you includes a comment about how you were introduced to it and/or why you listened to it during a certain period(or periods) in your life.
+Life Soundtrack is a journal of your life through your taste in music. After signing up, you you can compile all the songs that are important to you, through groupings called “Phases” which are ways of organizing songs by a time frame, like the four years you were in high school. Or that one year when you couldn’t get over your ex-girlfriend. Each song is unique entry that includes a comment about how you were introduced to it and/or why you listened to it during a certain period in your life.
 
 LS would be used by those who like to journal or collect or keep some emotional record of their lives. Similar to websites like pinterest.com or Film Aficionado (www.filmaf.com), LS let’s you keep a fun and personal journal of your love for music and how it’s been with you throughout your life.
 
