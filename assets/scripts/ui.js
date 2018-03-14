@@ -77,10 +77,15 @@ const getPhasesSuccess = function (data) {
   console.log('Phases are...', data)
   store.phases = data.phases
   console.log(data)
+  if (data.phases.length === 0) {
+    $('#alert-modal').modal('toggle')
+    $('#alert-modal-message').text(`No phases defined yet!`)
+  } else {
   const showPhasesHtml = showPhasesTemplate({ phases: store.phases })
   // we can use `.html` instead of `.append` to get around the need for a
   // clear books button
   $('.phases-content').html(showPhasesHtml)
+}
 }
 
 const getPhaseSuccess = function (data) {
@@ -91,8 +96,8 @@ const getPhaseSuccess = function (data) {
   // clear books button
   console.log(store.favorite_songs.length)
   if (store.favorite_songs.length === 0) {
-    console.log('It\'s empty!')
-    $('.phases-content').html('<p>No favorite songs from this phase in your life :(</p>')
+    $('#alert-modal').modal('toggle')
+    $('#alert-modal-message').text(`No favorite songs from this phase of your life were found. :(`)
   } else {
     console.log('There\'s stuff here yay')
     $('.phases-content').html(showPhaseHtml)

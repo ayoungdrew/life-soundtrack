@@ -54,13 +54,13 @@ const addHandlers = () => {
     $(this).closest('form').find('input[type=password], textarea').val('')
   })
 
-  $('#get-songs').on('submit', function (event) {
-    event.preventDefault()
-    console.log('I want to get all songs')
-    api.getSongs()
-      .then(ui.getSongsSuccess)
-      .catch(ui.getSongsFailure)
-  })
+  // $('#get-songs').on('submit', function (event) {
+  //   event.preventDefault()
+  //   console.log('I want to get all songs')
+  //   api.getSongs()
+  //     .then(ui.getSongsSuccess)
+  //     .catch(ui.getSongsFailure)
+  // })
 
   $('#create-song').on('submit', function (event) {
     event.preventDefault()
