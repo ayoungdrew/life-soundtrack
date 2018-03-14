@@ -17,10 +17,11 @@ In the interest of time, I recycled some assets from a recent project I built us
 Still to done is a lot of UI polish and smoothing out the user experience. For example, in its current form, a song must be in the database before a user can write a favorite song story that pertains to the song. Ideally the user shouldn't have to worry about the status of the database when adding a personal story to their Life Soundtrack profile.
 
 ### Development Materials
-Some user stories I used as guides:
-
 Initial Wireframes:
 https://drive.google.com/open?id=1y1O1zWrmdtbkWBdECqKY9_eHQ4tUDaLs
 
 ERD:
 https://drive.google.com/open?id=1nteuEH-ujKlRvy0QDw_1uspiHEkOux8-
+
+Initial Draft of User Stories:
+https://drive.google.com/open?id=15Lt-yceiAllXtfCFfnTowm4nQaFM2fOKD9iT0Aoxn2w
