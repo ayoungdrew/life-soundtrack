@@ -3,7 +3,7 @@
 const config = {
   apiOrigins: {
     development: 'http://localhost:4741',
-    production: 'https://life-soundtrack.herokuapp.com'
+    production: 'https://life-soundtrack-back.herokuapp.com'
   }
 }
 
