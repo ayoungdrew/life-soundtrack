@@ -104,17 +104,6 @@ const deletePhase = function (dataId) { // this is the POST verb
   })
 }
 
-const deleteFavoriteSong = function (dataId) { // this is the POST verb
-  return $.ajax({
-    url: config.apiOrigin + '/favorite_songs/' + dataId,
-    method: 'DELETE',
-    headers: {
-      contentType: 'application/json',
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 const createSong = function (data) { // this is the POST verb
   return $.ajax({
     url: config.apiOrigin + '/songs',
@@ -172,6 +161,17 @@ const editFavoriteSong = function (dataId, data) { // this is the POST verb
       Authorization: 'Token token=' + store.user.token
     },
     data
+  })
+}
+
+const deleteFavoriteSong = function (dataId) { // this is the POST verb
+  return $.ajax({
+    url: config.apiOrigin + '/favorite_songs/' + dataId,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 

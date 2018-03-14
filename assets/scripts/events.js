@@ -86,7 +86,7 @@ const addHandlers = () => {
       .catch(ui.getPhasesFailure)
   })
 
-  // SHOW THIS PHASE
+  // GET THIS PHASE
   $('body').on('click', '.get-phase-button', function (event) {
     event.preventDefault()
     console.log('I want to delete this phase')
@@ -185,6 +185,12 @@ const addHandlers = () => {
       .then(ui.editFavoriteSongSuccess)
       .catch(ui.editFavoriteSongFailure)
     // $(this).closest('form').find('input[type=text], textarea').val('')
+  })
+
+  // UPDATE Phase/Favorite songs Listing after Edit Submission
+  $('body').on('hidden.bs.modal', '.edit-favorite-song-modal', function () {
+    api.getPhase($(this).attr('data-id'))
+      .then(ui.getPhaseSuccess)
   })
 
   $('#sign-out').on('click', function (event) {
