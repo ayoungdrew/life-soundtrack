@@ -10,10 +10,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   -ms-transform: translate(0,-50%);
   -o-transform: translate(0,-50%);
   transform: translate(0,-50%);
-  font-size: 1.8vw;
+  font-size: 2.8vw;
+  color: white;
   z-index: 13;
   left: 0;
-  margin: 0 3%;
+  margin: 0 16%;
   width: 54%;
 }
 
@@ -23,11 +24,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 .song-artist-listing {
   margin: 5px;
-}
-
-.listing-edit {
-  font-size: 10px;
-  text-transform: uppercase;
 }
 
 .spacer20 {
@@ -96,4 +92,29 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 .create-favorite-song {
   display: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #ba465f;
+    border-color: #870026;
+}
+
+.phases-styling {
+  background-color: black;
+  color: white;
+}
+
+.listing-edit {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #ba465f;
+}
+
+.edit-favorite-song-modal {
+  color: black;
+}
+
+.edit-phase-modal {
+  color: black;
 }

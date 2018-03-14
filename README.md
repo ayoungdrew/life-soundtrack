@@ -1,61 +1,26 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+### Technologies used
+-Javascript
+-jQuery
+-CSS/SASS
+-HTML
+-Bootstrap framework
 
-# browser-template
+### Project Intro: Life Soundtrack
+Everyone went through that phase where they couldn’t take that one Natalie Imbruglia song off of repeat or only listened to Queen for 4 months. Music has a way of invoking feeling that other mediums can’t. Life Soundtrack is a journal of your life through your attachment with music. LS is a database of all the songs that are important to you, grouped by the years they were significant. Users can also create Class groupings called “Phases” which are ways of organizing songs by a time frame, like the four years you were in high school. Or that one year when you couldn’t get over your ex-girlfriend. Each song is unique entry that you includes a comment about how you were introduced to it and/or why you listened to it during a certain period(or periods) in your life.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+LS would be used by those who like to journal or collect or keep some emotional record of their lives. Similar to websites like pinterest.com or Film Aficionado (www.filmaf.com), LS let’s you keep a fun and personal journal of your love for music and how it’s been with you throughout your life.
 
-## Installation
+### Process: Life Soundtrack Front-End Development
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Replace all instances of `ga-wdi-boston.browser-template` with the name of your project.
-1.  Move into the new project and `git init`
-1.  Add all of the files in your project with the command `git add -A`
-  -   *Note:* THIS IS THE ONLY TIME YOU SHOULD RUN THIS COMMAND
-1.  Commit all of your files with the command `git commit`
-  -   Your commit title should read `Initial commit`
-1.  Install dependencies with `npm install`.
+In the interest of time, I recycled some assets from a recent project I built using the Bootstrap framework to get basic UI working.
 
-## Structure
+Still to done is a lot of UI polish and smoothing out the user experience. For example, in its current form, a song must be in the database before a user can write a favorite song story that pertains to the song. Ideally the user shouldn't have to worry about the status of the database when adding a personal story to their Life Soundtrack profile.
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+### Development Materials
+Some user stories I used as guides:
 
-Developers should set `config.apiOrigins.production` (and
-`config.apiOrigins.development` if it differs from the default).  With
-`apiOrigins` set, developers may rely on `config.apiOrigin` as the base for API
-URLs.
+Initial Wireframes:
+https://drive.google.com/open?id=1y1O1zWrmdtbkWBdECqKY9_eHQ4tUDaLs
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss).
-
-Developers should use [getFormFields](forms.md) to retrieve form data to send to
-an API.
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Tasks
-
-Developers should run these often!
-
--   `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
--   `grunt make-standard`: reformats all your code in the JavaScript Standard Style
--   `grunt <server|serve|s>`: generates bundles, watches, and livereloads
--   `grunt test`: runs any automated tests, depends on `grunt build`
--   `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## [License](LICENSE)
-
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+ERD:
+https://drive.google.com/open?id=1nteuEH-ujKlRvy0QDw_1uspiHEkOux8-

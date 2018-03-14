@@ -172,7 +172,7 @@ const addHandlers = () => {
     event.preventDefault()
     console.log('I want to delete this phase')
     api.deleteFavoriteSong($(this).attr('data-id'))
-    $(this).closest('ul').toggleClass('hidden')
+    $(this).closest('div').toggleClass('hidden')
   })
 
   // EDIT FAVORITE SONG
@@ -188,14 +188,17 @@ const addHandlers = () => {
   })
 
   // UPDATE Phase/Favorite songs Listing after Edit Submission
-  $('body').on('hidden.bs.modal', '.edit-favorite-song-modal', function () {
-    api.getPhase($(this).attr('data-id'))
-      .then(ui.getPhaseSuccess)
-  })
+  // $('body').on('hidden.bs.modal', '.edit-favorite-song-modal', function () {
+  //   api.getPhase($(this).attr('data-id'))
+  //     .then(ui.getPhaseSuccess)
+  // })
 
   $('#sign-out').on('click', function (event) {
     event.preventDefault()
     console.log('I want to sign out plz')
+    $('#create-favorite-song').trigger('reset')
+    $('#create-song').trigger('reset')
+    $('#create-phase').trigger('reset')
     api.signOut()
       .then(ui.signOutSuccess)
       .catch(ui.signOutFailure)

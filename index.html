@@ -49,15 +49,18 @@
 
 <!-- NAVBAR ENDS HERE WOOOOOHOOOOOOOO~~~~!!!! -->
 
-
-  <div class="row intro-header" style="background-color: rgba(230,240,250,1); height: 100px;">
-    <div class="col-sm-6" style="background-color: black; height: 500px;">
-      <div class="cta-wrapper"
-      <h2 style="color: white;">Oh did you come here for a silky smooth user experience?</h2>
+<!--INTRO HEADER starts here -->
+  <div class="row intro-header justify-content-md-center" style="background-color: rgba(230,240,250,1); height: 200px;">
+    <div class="col-sm-6 container" style="background-color: black; height: 500px;">
+      <div class="cta-wrapper">
+      <h2 style="font-size: 50px;">Oh did you come here for a silky smooth user experience?</h2>
+            <h4>You won't get it.</h4>
     </div>
     </div>
-    <div class="col-sm-6" style="background-color: red; height: 500px;"></div>
+    <div class="col-sm-6" style="background-color: #9e2245; height: 500px;"></div>
   </div>
+
+<!--INTRO HEADER ends here -->
 
 <div class="container">
 <!-- Sign In-->
@@ -79,9 +82,7 @@
 
 <form class="col-sm-6" id="sign-up-button">
   <h2>Not Registered?</h2>
-  <p>Be a nyan cat, feel great about it, be annoying
-    24/7 poop rainbows in litter box all day. If human is on laptop sit on
-    the keyboard.</p>
+  <p>Life Soundtrack is a journal of your life through your attachment with music. LS is a database of all the songs that are important to you, grouped by the years they were significant. Users can also create Class groupings called “Phases” which are ways of organizing songs by a time frame, like the four years you were in high school. Or that one year when you couldn’t get over your ex-girlfriend. Each song is unique entry that you includes a comment about how you were introduced to it and/or why you listened to it during a certain period(or periods) in your life.</p>
   <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#sign-up-modal">
   Sign up
 </button>
@@ -125,27 +126,29 @@
       </div>
     </div>
     <!--end of Sign-up Modal-->
+</div>
 
-    <!-- Get all songs -->
-      <!-- <form id="get-songs" class="col-sm-6 get-songs">
-        <h2>Get all songs!</h2>
-        <button type="submit" class="btn btn-primary">Get songs</button>
-            <div style="float: right;" id="songs-message"></div>
-      </form> -->
-
-<!--End GET ALL SONGS -->
 
 <!-- Start GET PHASES -->
-<div class="row">
-  <form id="get-all-phases" class="col-sm-6 get-all-phases">
-    <h2>Get all phases!</h2>
+<div class="container-fluid">
+<div class="row text-center">
+  <form id="get-all-phases" class="col-sm-12 get-all-phases">
+    <h2>Your musical baggage</h2>
     <button type="submit" class="btn btn-primary">Get all phases</button>
         <div style="float: right;" id="phases-container"></div>
   </form>
 </div>
-<div id="phases-content" class="row phases-content">
+
+<div class="spacer20"></div>
+
+<div class="row">
+<div class="container-fluid phases-styling">
+  <div class="container phases-content" id="phases-content">
+  </div>
+</div>
 </div>
 
+</div>
 <!--End GET ALL PHASES -->
 
 <!-- Start GET PHASE -->
@@ -155,7 +158,7 @@
   </form> -->
 
 <!--End GET PHASE -->
-
+<div class="container">
 <!-- Start CREATE PHASE -->
   <form id="create-phase" class="col-sm-6 create-phase">
     <h2>Create a phase!</h2>

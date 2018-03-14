@@ -1,17 +1,15 @@
 {{#each phases as |phase|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
-<div>
+<div style="padding: 30px;">
       <h1 data-id="{{phase.id}}">
-        <small>
           {{phase.name}}
           <!-- ID: {{phase.id}} -->
           <!-- userid: {{phase.user.id}} -->
-        </small>
       </h1>
-
-        Dates: {{phase.start_date}} - {{phase.end_date}}
-
+      <h3 style="margin-top: 0;">
+        {{phase.start_date}} - {{phase.end_date}}
+      </h3>
 <p>
   <a href="#" class="get-phase-button listing-edit" data-id={{phase.id}}>
   View this phase
@@ -36,6 +34,7 @@
   </button>
   </form> -->
 </p>
+</div>
   <!-- Edit Phase Modal -->
       <div class="modal fade edit-phase-modal" id="edit-phase-{{phase.id}}-modal" data-id="{{phase.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" id="edit-phase-inner" role="document">
@@ -74,5 +73,4 @@
           </div>
         </div>
       </div>
-</div>
 {{/each}}

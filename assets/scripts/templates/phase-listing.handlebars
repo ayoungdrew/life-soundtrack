@@ -1,7 +1,7 @@
 {{#each favorite_songs as |favorite_song|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
-<div class="col-sm-4" style="min-height: 240px;">
+<div class="col-sm-4" style="min-height: 240px; padding: 30px;">
 
       <h2 class="song-listing" data-id="{{favorite_song.id}}">
           "{{favorite_song.song.name}}"
@@ -11,6 +11,7 @@
           <!-- {{favorite_song.songs}} -->
       </h3>
         <h4>The year was {{favorite_song.story_date}}...</h4>
+        <hr>
         <p>{{favorite_song.story}}</p>
 
 
@@ -56,7 +57,7 @@
                   <div class="form-group col-sm-12">
                     <label for="exampleInputEmail1">Story</label>
                     <input type="text" name="favorite_song[story]" class="form-control" aria-describedby="emailHelp" value="{{favorite_song.story}}">
-                    <small class="form-text text-muted">We'll also send you newsletters and a bunch of tic-tac-toe related spam roflmao fml</small>
+                    <small class="form-text text-muted">Tell us your deepest darkest secrets. And your thoughts on this songs too.</small>
                   </div>
                 </div>
                 </fieldset>
