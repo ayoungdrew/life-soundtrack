@@ -65,6 +65,7 @@ const fillEmptyForms = function () {
 const createSongSuccess = function (data) {
   // console.log(data)
   // console.log('Song ID is', data.song.id)
+  $('#create-song').trigger('reset')
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text(`Success! "${data.song.name}" by ${data.song.artist} added to database.`)
 }
@@ -117,6 +118,7 @@ const getPhaseSuccess = function (data) {
 //   $('.phases-content').html(showPhasesHtml)
 // }
 const createPhaseSuccess = (data) => {
+  $('#create-phase').trigger('reset')
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text(`Created new phase: ${data.phase.name} (${data.phase.start_date} - ${data.phase.end_date})`)
 }
@@ -152,6 +154,7 @@ const getFavoriteSongsFailure = function (error) {
 }
 
 const createFavoriteSongSuccess = function (data) {
+  $('#create-favorite-song').trigger('reset')
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text('Your story was added!')
 }

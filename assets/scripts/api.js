@@ -24,7 +24,7 @@ const signIn = function (data) { // this is the POST verb
 }
 
 const changePassword = function (data) { // this is the POST verb
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/change-password',
     method: 'PATCH',
