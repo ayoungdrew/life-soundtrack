@@ -49,7 +49,7 @@ const changePasswordFailure = function (error) {
 }
 
 const getSongsSuccess = function (data) {
-  console.log('songs are...', data)
+  // console.log('songs are...', data)
   store.songs = data.songs
 }
 
