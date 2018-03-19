@@ -162,7 +162,6 @@ const createFavoriteSongSuccess = function (data) {
 }
 
 const createFavoriteSongFailure = function () {
-  $('#create-favorite-song').trigger('reset')
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text('Failed :( Add the song to the database first!')
 }
