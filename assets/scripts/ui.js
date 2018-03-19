@@ -67,12 +67,14 @@ const createSongSuccess = function (data) {
   // console.log('Song ID is', data.song.id)
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text(`Success! "${data.song.name}" by ${data.song.artist} added to database.`)
+  $('#create-song').trigger('reset')
 }
 
 const createSongFailure = function (error) {
   console.error(error)
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text(`Fail!`)
+  $('#create-song').trigger('reset')
 }
 
 const getPhasesSuccess = function (data) {
@@ -119,11 +121,13 @@ const getPhaseSuccess = function (data) {
 const createPhaseSuccess = (data) => {
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text(`Created new phase: ${data.phase.name} (${data.phase.start_date} - ${data.phase.end_date})`)
+  $('#create-phase').trigger('reset')
 }
 
 const createPhaseFailure = () => {
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text(`Failed to create new phase :(`)
+  $('#create-phase').trigger('reset')
 }
 
 const editPhaseSuccess = () => {
@@ -152,11 +156,13 @@ const getFavoriteSongsFailure = function (error) {
 }
 
 const createFavoriteSongSuccess = function (data) {
+  $('#create-favorite-song').trigger('reset')
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text('Your story was added!')
 }
 
 const createFavoriteSongFailure = function () {
+  $('#create-favorite-song').trigger('reset')
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text('Failed :( Add the song to the database first!')
 }
