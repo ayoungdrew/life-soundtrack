@@ -91,7 +91,7 @@ const getPhasesSuccess = function (data) {
 }
 
 const getPhaseSuccess = function (data) {
-  console.log('Phase is...', data)
+  // console.log('Phase is...', data)
   store.favorite_songs = data.favorite_songs
   const showPhaseHtml = showPhaseTemplate({ favorite_songs: store.favorite_songs })
   // we can use `.html` instead of `.append` to get around the need for a
