@@ -3,6 +3,7 @@ const showPhasesTemplate = require('./templates/phases-listing.handlebars')
 const showPhaseTemplate = require('./templates/phase-listing.handlebars')
 
 const signUpSuccess = function (data) {
+  $('#sign-up').trigger('reset')
   $('#sign-up-modal-message').html('Signed up succesfully').addClass('successMessage')
   $('#signUpForms, #signUpSubmit, #register-button').css({
     'display': 'none'
