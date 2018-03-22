@@ -72,6 +72,7 @@ const addHandlers = () => {
       api.createSong(data)
         .then(ui.createSongSuccess)
         .catch(function () {
+          $('#create-song').trigger('reset')
           $('#alert-modal').modal('toggle')
           $('#alert-modal-message').text(`Ohh, "${data.song.name}" by ${data.song.artist} is already in the database you silly goose! Go ahead and add your favorite song story now :)`)
         })

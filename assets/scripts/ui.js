@@ -72,6 +72,7 @@ const createSongSuccess = function (data) {
 
 const createSongFailure = function (error) {
   console.error(error)
+  $('#create-song').trigger('reset')
   $('#alert-modal').modal('toggle')
   $('#alert-modal-message').text(`Fail!`)
 }
