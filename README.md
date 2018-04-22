@@ -1,5 +1,5 @@
-https://ayoungdrew.github.io/life-soundtrack-front/
-https://life-soundtrack-back.herokuapp.com/
+https://ayoungdrew.github.io/life-soundtrack-client/
+https://life-soundtrack-api.herokuapp.com/
 
 ### Technologies used
 -Javascript
