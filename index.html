@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Life Soundtrack</title>
+      <meta property="og:title" content="Life Soundtrack" />
+      <meta property="og:description" content="A microblogging/journaling platform based around a user's favorite songs and the life phases of their musical tastes." />
+      <meta property="og:url" content="https://ayoungdrew.github.io/life-soundtrack/" />
+      <meta property="og:image" content="https://www.ayoungdev.com/assets/img/life-soundtrack.jpg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+
+
+    <body>
+
+
+<!--NAVBAR STARTS HEREEEREEEEERERREEEE -->
+
+      <nav class="navbar navbar-default" style="margin-bottom: 0">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">LIFE SOUNDTRACK</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!-- <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">Link</a></li>
+            </ul> -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="profile-button" class="profile-button" style="display: none;" data-toggle="modal" data-target="#user-profile">Profile</a></li>
+              <li><a href="#" class="sign-up"data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+              <li><a href="#" id="sign-out" class="sign-out" style="display: none;">Sign Out</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+<!-- NAVBAR ENDS HERE WOOOOOHOOOOOOOO~~~~!!!! -->
+
+<!--INTRO HEADER starts here -->
+  <div class="row intro-header justify-content-md-center" style="background-color: rgba(230,240,250,1); height: 200px;">
+    <div class="col-sm-6 container" style="background-color: black; height: 500px;">
+      <div class="cta-wrapper">
+      <h2 style="font-size: 50px;">Remember that song that that kept you going through finals week?</h2>
+            <h4>No judgement here. We've all had our Bieber phases.</h4>
+    </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #9e2245; height: 500px;"></div>
+  </div>
+
+<!--INTRO HEADER ends here -->
+
+<div class="container">
+<!-- Sign In-->
+  <form id="sign-in" class="col-sm-6">
+    <h2>Background music of your life</h2>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+        <div style="float: right;" id="message"></div>
+  </form>
+
+<!-- END Sign In-->
+
+<form class="col-sm-6" id="sign-up-button">
+  <h2>Not Registered?</h2>
+  <p>Life Soundtrack is a journal of your life through your taste in music. After signing up, you you can compile all the songs that are important to you, through groupings called “Phases” which are ways of organizing songs by a time frame, like the four years you were in high school. Or that one year when you couldn’t get over your ex-girlfriend. Each song is a unique entry that includes a comment about how you were introduced to it and/or why you listened to it during a certain period in your life.</p>
+  <button type="button" class="btn btn-primary spacer20" data-toggle="modal" data-target="#sign-up-modal">
+  Sign up
+</button>
+</form>
+
+<!-- Sign Up Modal -->
+    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" id="sign-up-inner" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-up" class="form-group">
+              <fieldset id="signUpForms">
+                <div>
+                <div class="form-group col-sm-12">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" name="credentials[email]" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small class="form-text text-muted">No worries. We won't spam your email nor force a U2 album into your iTunes.</small>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="exampleInputPassword">Password</label>
+                  <input type="password" name="credentials[password]" class="form-control" aria-describedby="emailHelp" placeholder="Enter password">
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="exampleInputPassword">Password Confirmation</label>
+                  <input type="password" name="credentials[password_confirmation]" class="form-control" aria-describedby="emailHelp" placeholder="Enter password">
+                </div>
+              </div>
+              </fieldset>
+              <div class="col-sm-12" id="sign-up-modal-message"></div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="register-button" type="submit" class="btn btn-primary">Register</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end of Sign-up Modal-->
+</div>
+
+
+<!-- Start GET PHASES -->
+<div class="container-fluid">
+<div class="row text-center">
+  <form id="get-all-phases" class="col-sm-12 get-all-phases">
+    <h2>Your musical baggage</h2>
+    <button type="submit" class="btn btn-primary">Show me. Everything.</button>
+        <div style="float: right;" id="phases-container"></div>
+  </form>
+</div>
+
+<div class="spacer20"></div>
+
+<div class="row">
+<div class="container-fluid phases-styling">
+  <div class="container phases-content" id="phases-content">
+  </div>
+</div>
+</div>
+
+</div>
+<!--End GET ALL PHASES -->
+
+<!-- Start GET PHASE -->
+  <!-- <form id="get-phase" class="col-sm-6 get-phase">
+    <h2>Get specific phase!</h2>
+    <button type="submit" class="btn btn-primary">Get specific phase</button>
+  </form> -->
+
+<!--End GET PHASE -->
+<div class="container">
+<!-- Start CREATE PHASE -->
+  <form id="create-phase" class="col-sm-6 create-phase">
+    <h2>Add a new musical phase</h2>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="inputPhaseName">Phase Name</label>
+      <input type="text" name="phase[name]" class="form-control" id="inputPhaseName" placeholder="e.g., Those Three Years I Couldn't Stop Listening to Rihanna">
+    </div>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="inputPhaseArtist">Phase Start Date</label>
+      <input type="text" name="phase[start_date]" class="form-control" id="inputPhaseStartDate" placeholder="e.g., 2011">
+    </div>
+    <div class="form-group" style="padding-left: 0px;">
+      <label for="inputPhaseArtist">Phase End Date</label>
+      <input type="text" name="phase[end_date]" class="form-control" id="inputPhaseEndDate" placeholder="e.g., 2013">
+    </div>
+    <button type="submit" class="btn btn-primary">Create phase</button>
+        <div style="float: right;" id="phase-message"></div>
+  </form>
+
+<!--End CREATE PHASE -->
+
+    <!-- Start CREATE SONG -->
+      <form id="create-song" class="col-sm-6 create-song">
+        <h2>Add a song to the database</h2>
+        <div class="form-group" style="padding-left: 0px;">
+          <label for="inputSongName">Song Name</label>
+          <input type="text" name="song[name]" class="form-control" id="inputSongName" placeholder="e.g., Bohemian Rhapsody">
+        </div>
+        <div class="form-group" style="padding-left: 0px;">
+          <label for="inputSongArtist">Artist Name</label>
+          <input type="text" name="song[artist]" class="form-control" id="inputSongArtist" placeholder="e.g., Queen">
+        </div>
+        <button type="submit" class="btn btn-primary">Create song</button>
+            <div style="float: right;" id="message"></div>
+      </form>
+
+<!--End CREATE SONG -->
+
+<!-- Create Favorite Song -->
+<form id="create-favorite-song" class="col-sm-6 create-favorite-song">
+  <h2>Write about a favorite song</h2>
+  <!-- <div class="form-group" style="padding-left: 0px;">k
+    <label for="inputUserID">User ID</label>
+    <input type="text" name="favorite_song[user_id]" class="form-control" id="inputUserID" placeholder="Enter user ID">
+  </div>
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputSongID">Song ID</label>
+    <input type="text" name="favorite_song[song_id]" class="form-control" id="inputSongID" placeholder="Enter song ID">
+  </div> -->
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputFavoriteSongName">Song Name</label>
+    <input type="text" name="favorite_song[name]" class="form-control" id="inputFavoriteSongName" placeholder="e.g., Fly Me to the Moon">
+  </div>
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputFavoriteSongArtist">Artist Name</label>
+    <input type="text" name="favorite_song[artist]" class="form-control" id="inputFavoriteSongArtist" placeholder="e.g., Frank Sinatra">
+  </div>
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputFavoriteSongDate">Story Date Year</label>
+    <input type="text" name="favorite_song[story_date]" class="form-control" id="inputFavoriteSongDate" placeholder="e.g., 2009">
+  </div>
+  <div class="form-group" style="padding-left: 0px;">
+    <label for="inputFavoriteSongStory">Story</label>
+    <input type="text" name="favorite_song[story]" class="form-control" id="inputFavoriteSongStory" placeholder="e.g., Was addicted to this song fall semester of sophomore year in college.">
+  </div>
+  <button type="submit" class="btn btn-primary">Create favorite song</button>
+      <div style="float: right;" id="message"></div>
+</form>
+
+<!--End CREATE FAVORITE SONG -->
+
+<!--Start Profile -->
+<!-- User profile modal Button-->
+  <!-- <form id="profile-button" class="profile-button">
+  <button type="submit" class="btn btn-primary spacer20" data-toggle="modal" data-target="#user-profile">
+    Your Profile
+  </button>
+  </form> -->
+  <!-- User profile modal  -->
+  <div class="modal fade" id="user-profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">User Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="change-password" class="form-group">
+            <fieldset>
+              <div class="col-sm-12">
+              <div id="game-history-message"></div>
+              <div class="spacer20"></div>
+              </div>
+              <div>
+              <div class="form-group col-sm-12">
+                <label for="exampleInputPassword">Old Password</label>
+                <input type="password" name="passwords[old]" class="form-control" placeholder="Enter old password">
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="exampleInputPassword">New Password</label>
+                <input type="password" name="passwords[new]" class="form-control" placeholder="Enter new password">
+              </div>
+            </div>
+            </fieldset>
+            <div id="change-password-message"></div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Change password</button>
+        </form>
+            <!-- <input type="submit" value="Game history!"> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ALERT</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="alert-modal-message" class="modal-body" style="font-size: 20px;">
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End PROFILE -->
+
+<!--Start Sign Out -->
+<!-- <form id="sign-out" class="border sign-out">
+    <button type="submit" class="btn btn-primary spacer20">
+      Sign out
+    </button>
+</form> -->
+
+<!-- End SIGN OUT -->
+
+<!-- <p class="spacer80"> </p> -->
+</div>
+
+    </body>
+</html>
